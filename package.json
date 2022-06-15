@@ -1,0 +1,31 @@
+{
+  "name": "crud-api",
+  "version": "1.0.0",
+  "description": "The task is to implement simple CRUD API using in-memory database underneath",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon src/index.ts",
+    "start:prod": "tsc && node ./build/index.js",
+    "build": "tsc",
+    "dev": "ts-node ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/du-dim/CRUD-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/du-dim/CRUD-API/issues"
+  },
+  "homepage": "https://github.com/du-dim/CRUD-API#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  }
+}

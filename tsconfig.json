@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "removeComments": true, 
+    "strict": true,
+    "noImplicitAny": true,
+    
+  },  
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true
+  },
+}
