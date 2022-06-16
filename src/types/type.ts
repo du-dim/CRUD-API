@@ -1,13 +1,6 @@
 export interface IUsers {
-  id: number;
+  id: string;
   username: string;
   age: number;
   hobbies: string[];
-}
-
-export enum EMethods {
-  POST,
-  GET,
-  PATCH,
-  DELETE
 }
