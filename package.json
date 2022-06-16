@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon ./src/server.ts",
     "start:prod": "tsc && node ./build/server.js",
+    "start:multi": "nodemon ./src/cluster.ts",
     "build": "tsc",
     "dev": "ts-node ./src/server.ts"
   },

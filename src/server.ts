@@ -5,6 +5,8 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 const myServer = createServer();
-
-myServer.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+myServer.listen(PORT, () => {
+  if (process.send) process.send({ port: PORT, pid: process.pid });
+  else console.log(`Server started on port ${PORT}. Pid: ${process.pid}`);
+});
 myServer.addListener('request', (req, res) => choiceHandle(req, res));
