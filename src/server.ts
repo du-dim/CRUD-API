@@ -10,3 +10,11 @@ myServer.listen(PORT, () => {
   else console.log(`Server started on port ${PORT}. Pid: ${process.pid}`);
 });
 myServer.addListener('request', (req, res) => choiceHandle(req, res));
+
+process.on('SIGINT', () => {
+  myServer.close(() => process.disconnect());
+});
+
+process.on('SIGUSR2', () => {
+  myServer.close(() => process.exit(1));
+});
