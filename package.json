@@ -2,14 +2,14 @@
   "name": "crud-api",
   "version": "1.0.0",
   "description": "The task is to implement simple CRUD API using in-memory database underneath",
-  "main": "index.ts",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon src/index.ts",
-    "start:prod": "tsc && node ./build/index.js",
+    "start:dev": "nodemon ./src/server.ts",
+    "start:prod": "tsc && node ./build/server.js",
     "build": "tsc",
-    "dev": "ts-node ./src/index.ts"
+    "dev": "ts-node ./src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/du-dim/CRUD-API#readme",
   "devDependencies": {
+    "@types/node": "^17.0.43",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "dotenv": "^16.0.1",
