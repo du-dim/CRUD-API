@@ -5,9 +5,6 @@ import { handleUpdate } from './handleUpdate.js';
 import { handleDelete } from './handleDelete.js';
 import { pidN, PORT } from '../server.js';
 
-interface IMsg {
-  pid: number;
-}
 export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) => {
   try {
     if (process.send) process.send({ port: PORT, pid: pidN, method: req.method, url: req.url });
@@ -22,7 +19,7 @@ export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) =>
         handleRead(req.url, res);
         break;
       case 'DELETE':
-        handleRead(req.url, res);
+        await handleDelete(req.url, res);
         break;
       default:
         break;

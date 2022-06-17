@@ -2,7 +2,6 @@ import { ServerResponse } from 'http';
 import { correctUrl } from '../module/correctUrl.js';
 import { usersDB } from '../module/inMemoryDB.js';
 import { validate } from 'uuid';
-import { resolve } from 'path';
 
 export const handleRead = async (reqUrl: string | undefined, res: ServerResponse) => {
   try {

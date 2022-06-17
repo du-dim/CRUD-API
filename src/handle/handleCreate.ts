@@ -2,7 +2,7 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { correctUrl } from '../module/correctUrl.js';
 import { usersDB } from '../module/inMemoryDB.js';
 import { TUser } from '../types/type.js';
-import { validate, v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export const handleCreate = async (req: IncomingMessage, res: ServerResponse) => {
   try {
