@@ -15,8 +15,8 @@ export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) =>
       case 'POST':
         await handleCreate(req, res);
         break;
-      case 'PATCH':
-        handleRead(req.url, res);
+      case 'PUT':
+        await handleUpdate(req, res);
         break;
       case 'DELETE':
         await handleDelete(req.url, res);
