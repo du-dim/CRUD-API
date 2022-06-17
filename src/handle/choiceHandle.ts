@@ -11,7 +11,7 @@ export const choiceHandle = (req: IncomingMessage, res: ServerResponse) => {
         handleRead(req.url, res);
         break;
       case 'POST':
-        handleRead(req.url, res);
+        handleCreate(req, res);
         break;
       case 'PATCH':
         handleRead(req.url, res);

@@ -17,7 +17,7 @@ export const handleRead = (reqUrl: string | undefined, res: ServerResponse) => {
     const userID = url.slice(baseUrl.length).slice(1);
     if (!userID.length) {
       res.writeHead(200);
-      res.end(JSON.stringify(usersDB));
+      res.end(JSON.stringify(usersDB.data));
       return;
     }
     if (!validate(userID)) {
@@ -25,13 +25,13 @@ export const handleRead = (reqUrl: string | undefined, res: ServerResponse) => {
       res.end(JSON.stringify({ error: 'Invalid userId' }));
       return;
     }
-    usersDB.forEach((obj) => {
-      if (userID === obj.id) {
-        res.writeHead(200);
-        res.end(JSON.stringify(obj));
-        return;
-      }
-    });
+
+    if (usersDB.read(userID)) {
+      res.writeHead(200);
+      res.end(JSON.stringify(usersDB.read(userID)));
+      return;
+    }
+
     res.writeHead(404);
     res.end(JSON.stringify({ error: 'User not found' }));
   } catch (error) {
