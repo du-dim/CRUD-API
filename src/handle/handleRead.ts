@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http';
 import { correctUrl } from '../module/correctUrl.js';
-import { usersDB } from '../module/usersdb.js';
+import { usersDB } from '../module/inMemoryDB.js';
 import { validate } from 'uuid';
 
 export const handleRead = (reqUrl: string | undefined, res: ServerResponse) => {

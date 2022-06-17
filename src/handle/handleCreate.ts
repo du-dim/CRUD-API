@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { correctUrl } from '../module/correctUrl.js';
-import { usersDB } from '../module/usersdb.js';
+import { usersDB } from '../module/inMemoryDB.js';
 import { IUsers } from '../types/type.js';
 import { validate } from 'uuid';
 
@@ -10,7 +10,7 @@ export const handleCreate = (req: IncomingMessage, res: ServerResponse) => {
     req.on('data', (data) => {
       const user: IUsers = JSON.parse(`${data}`);
       console.log(user);
-      usersDB.write(user);
+      usersDB.create(user);
     });
 
     res.writeHead(200);
