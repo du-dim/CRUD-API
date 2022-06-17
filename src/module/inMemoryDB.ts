@@ -1,20 +1,20 @@
-import { IUsers } from '../types/type';
+import { TUser } from '../types/type';
 
 class Database {
-  data: IUsers[];
+  data: TUser[];
   constructor() {
     this.data = [];
   }
-  create(newUser: IUsers) {
+  create(newUser: TUser) {
     this.data.push(newUser);
   }
 
   read(id: string) {
     const user = this.data.filter((u) => u.id === id);
-    return user;
+    return user[0];
   }
 
-  update(newUser: IUsers) {
+  update(newUser: TUser) {
     const index = this.data.findIndex((u) => u.id === newUser.id);
     this.data[index] = { ...this.data[index], ...newUser };
   }

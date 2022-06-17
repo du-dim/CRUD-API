@@ -3,15 +3,20 @@ import { handleCreate } from './handleCreate.js';
 import { handleRead } from './handleRead.js';
 import { handleUpdate } from './handleUpdate.js';
 import { handleDelete } from './handleDelete.js';
+import { pidN, PORT } from '../server.js';
 
-export const choiceHandle = (req: IncomingMessage, res: ServerResponse) => {
+interface IMsg {
+  pid: number;
+}
+export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) => {
   try {
+    if (process.send) process.send({ port: PORT, pid: pidN, method: req.method, url: req.url });
     switch (req.method) {
       case 'GET':
-        handleRead(req.url, res);
+        await handleRead(req.url, res);
         break;
       case 'POST':
-        handleCreate(req, res);
+        await handleCreate(req, res);
         break;
       case 'PATCH':
         handleRead(req.url, res);
