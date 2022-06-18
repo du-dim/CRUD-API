@@ -3,7 +3,7 @@ import { handleCreate } from './handleCreate.js';
 import { handleRead } from './handleRead.js';
 import { handleUpdate } from './handleUpdate.js';
 import { handleDelete } from './handleDelete.js';
-import { pidN, PORT } from '../server.js';
+import { pidN, PORT } from '../../server.js';
 
 export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) => {
   try {
@@ -25,6 +25,7 @@ export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) =>
         break;
     }
   } catch (error) {
-    console.log('error');
+    res.writeHead(500);
+    res.end(JSON.stringify({ error: 'Errors on the server side' }));
   }
 };

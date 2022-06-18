@@ -8,27 +8,41 @@ if (cluster.isPrimary) {
     const worker = cluster.fork();
     worker.on('message', (msg) => {
       if (!msg.method) {
-        console.log(`Server_${i + 1} (pid: ${msg.pid}) started on port ${msg.port}.`);
+        console.log(
+          `\x1b[32mServer_${i + 1} (pid: \x1b[33m${msg.pid}\x1b[32m) started on port \x1b[33m${
+            msg.port
+          }\x1b[0m`
+        );
       } else if (msg.method) {
-        console.log(`Server (pid: ${msg.pid}): ${msg.method} -> ${msg.url}`);
+        console.log(
+          `\x1b[34mServer (pid: \x1b[33m${msg.pid}\x1b[34m):\x1b[0m ${msg.method}\x1b[32m -> \x1b[0m${msg.url}`
+        );
       }
     });
   }
   cluster.on('exit', (worker, code) => {
-    console.log(`Server died! Pid: ${worker.process.pid}. Code ${code}`);
+    console.log(
+      `\x1b[35mServer died! Pid: \x1b[33m${worker.process.pid}\x1b[35m. Code \x1b[33m${code}\x1b[0`
+    );
     if (code === 1) {
       const workerNew = cluster.fork();
       workerNew.on('message', (msg) => {
         if (!msg.method) {
-          console.log(`New server (pid: ${msg.pid}) started on port ${msg.port}.`);
+          console.log(
+            `\x1b[32mNew server (pid: \x1b[33m${msg.pid}\x1b[32m) started on port \x1b[33m${msg.port}\x1b[0m`
+          );
         } else if (msg.method) {
-          console.log(`New server (pid: ${msg.pid}): ${msg.method} -> ${msg.url}`);
+          console.log(
+            `\x1b[34mServer (pid: \x1b[33m${msg.pid}\x1b[34m): \x1b[0m${msg.method}\x1b[32m ->\x1b[0m ${msg.url}`
+          );
         }
       });
     }
   });
 } else if (cluster.isWorker) {
-  import('./server.js');
+  void (async () => {
+    import('./server.js');
+  })();
 }
 process.on('SIGINT', () => {
   for (const id in cluster.workers) {

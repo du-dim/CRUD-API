@@ -1,5 +1,5 @@
 import { createServer } from 'http';
-import { choiceHandle } from './handle/choiceHandle.js';
+import { choiceHandle } from './module/handle/choiceHandle.js';
 import dotenv from 'dotenv';
 dotenv.config();
 

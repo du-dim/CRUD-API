@@ -1,4 +1,4 @@
-import { TUser } from '../types/type';
+import { TUser, TUserDB } from './types/type';
 
 class Database {
   data: TUser[];
@@ -24,4 +24,4 @@ class Database {
   }
 }
 
-export const usersDB = new Database();
+export const usersDB = new Database() as TUserDB;
