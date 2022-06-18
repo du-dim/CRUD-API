@@ -5,7 +5,7 @@ import { getJSON } from '../getJSON.js';
 import { TUser } from '../types/type.js';
 import { validate } from 'uuid';
 
-export const handleUpdate = async (req: IncomingMessage, res: ServerResponse) => {
+export const handleChange = async (req: IncomingMessage, res: ServerResponse) => {
   const baseUrl = '/api/users';
   const url = correctUrl(req.url);
 
@@ -32,8 +32,6 @@ export const handleUpdate = async (req: IncomingMessage, res: ServerResponse) =>
       const addUser = { ...usersDB.read(userID), ...user };
       if (
         user &&
-        user.username &&
-        user.age &&
         typeof addUser.username === 'string' &&
         typeof addUser.age === 'number' &&
         addUser.age >= 0 &&

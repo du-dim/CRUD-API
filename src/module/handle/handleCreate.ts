@@ -20,17 +20,17 @@ export const handleCreate = async (req: IncomingMessage, res: ServerResponse) =>
     hobbies: []
   };
   let user: TUser | undefined;
-
-  req.on('data', (data) => {
-    user = getJSON(data);
+  req.on('data', async (data) => {
+    user = await getJSON(data);
   });
-  if (!user) throw Error();
+
   req.on('end', async () => {
     const id = { id: uuidv4() };
     const addUser = { ...id, ...userStart, ...user };
     if (
-      addUser.username &&
-      addUser.age &&
+      user &&
+      user.username &&
+      user.age &&
       typeof addUser.username === 'string' &&
       typeof addUser.age === 'number' &&
       addUser.age >= 0 &&
@@ -41,7 +41,7 @@ export const handleCreate = async (req: IncomingMessage, res: ServerResponse) =>
       res.writeHead(201);
       res.end(JSON.stringify(addUser));
       return;
-    } else {
+    } else if (user) {
       res.writeHead(400);
       res.end(
         JSON.stringify({
@@ -49,6 +49,9 @@ export const handleCreate = async (req: IncomingMessage, res: ServerResponse) =>
             'The body does not contain required valid fields: {username: string, age: number}. hobbies: string[] is not a required field'
         })
       );
+    } else {
+      res.writeHead(500);
+      res.end(JSON.stringify({ error: 'Errors on the server side' }));
     }
   });
   const promis = new Promise((resolve) => res.on('close', () => resolve(true)));

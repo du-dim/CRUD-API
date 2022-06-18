@@ -3,6 +3,7 @@ import { handleCreate } from './handleCreate.js';
 import { handleRead } from './handleRead.js';
 import { handleUpdate } from './handleUpdate.js';
 import { handleDelete } from './handleDelete.js';
+import { handleChange } from './handleChange.js';
 import { pidN, PORT } from '../../server.js';
 
 export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) => {
@@ -21,8 +22,11 @@ export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) =>
       case 'DELETE':
         await handleDelete(req.url, res);
         break;
-      default:
+      case 'PATCH':
+        await handleChange(req, res);
         break;
+      default:
+        throw Error();
     }
   } catch (error) {
     res.writeHead(500);
