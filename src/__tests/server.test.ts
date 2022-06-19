@@ -378,4 +378,15 @@ describe('6.Test -> StatusCode 500 (Invalid JSON)', () => {
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({ error: 'Errors on the server side' });
   });
+
+  it('29) test_4', async () => {
+    const res = await request(myServer)
+      .post('/api/users')
+      .set('Accept', 'application/json')
+      .send()
+      .expect('Content-Type', /json/);
+    expect(res.type).toBe('application/json');
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: 'Errors on the server side' });
+  });
 });

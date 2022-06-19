@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 //@ts-ignore
 import { createServer } from 'http';
-import { choiceHandle } from './module/handle/choiceHandle.js';
+import { handler } from './modules/handlers/_handler.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -14,7 +14,7 @@ myServer.listen(PORT, () => {
   if (process.send) process.send({ port: PORT, pid: pidN });
   else console.log(`Server started on port ${PORT}. Pid: ${pidN}`);
 });
-myServer.addListener('request', async (req, res) => await choiceHandle(req, res));
+myServer.addListener('request', async (req, res) => await handler(req, res));
 
 process.on('SIGINT', () => {
   myServer.close(() => process.disconnect());

@@ -6,9 +6,15 @@ import { handleDelete } from './handleDelete.js';
 import { handleChange } from './handleChange.js';
 import { pidN, PORT } from '../../server.js';
 
-export const choiceHandle = async (req: IncomingMessage, res: ServerResponse) => {
+export const handler = async (req: IncomingMessage, res: ServerResponse) => {
   try {
-    if (process.send) process.send({ port: PORT, pid: pidN, method: req.method, url: req.url });
+    if (process.send) {
+      process.send({ port: PORT, pid: pidN, method: req.method, url: req.url });
+    } else {
+      console.log(
+        `\x1b[34mServer (pid: \x1b[33m${pidN}\x1b[34m): \x1b[0m${req.method}\x1b[32m ->\x1b[0m ${req.url}`
+      );
+    }
     switch (req.method) {
       case 'GET':
         await handleRead(req.url, res);
