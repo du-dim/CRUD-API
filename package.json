@@ -5,7 +5,7 @@
   "main": "server.ts",
   "type": "module",
   "scripts": {
-    "start:test": "vitest",
+    "start:test": "vitest --ui",
     "start:dev": "nodemon ./src/server.ts",
     "start:prod": "tsc && node ./build/server.js",
     "start:multi": "nodemon ./src/cluster.ts",
@@ -29,6 +29,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
+    "@vitest/ui": "^0.15.1",
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",

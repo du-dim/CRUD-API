@@ -39,20 +39,20 @@ const UserError4 = {
 
 //  1.Test -> GET api/users is used to get all persons
 
-describe('\x1b[34m1. GET api/users is used to get all persons\x1b[0m', () => {
-  it('\x1b[33m01) test_1\x1b[0m', async () => {
+describe('1. GET api/users is used to get all persons', () => {
+  it('01) test_1', async () => {
     const res = await request(myServer).get('/api/users');
     expect(res.type).toBe('application/json');
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual([]);
   });
-  it('\x1b[33m02) test_2\x1b[0m', async () => {
+  it('02) test_2', async () => {
     const res = await request(myServer).get('/api/users/');
     expect(res.type).toBe('application/json');
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual([]);
   });
-  it('\x1b[33m03) test_3\x1b[0m', async () => {
+  it('03) test_3', async () => {
     const res = await request(myServer).get('/api/user');
     expect(res.type).toBe('application/json');
     expect(res.statusCode).toBe(400);
@@ -62,8 +62,8 @@ describe('\x1b[34m1. GET api/users is used to get all persons\x1b[0m', () => {
 
 //  2.Test -> POST api/users is used to create record about new user and store it in database
 
-describe('\x1b[34m2. POST api/users is used to create record about new user and store it in database\x1b[0m', () => {
-  it('\x1b[33m04) test_1\x1b[0m', async () => {
+describe('2. POST api/users is used to create record about new user and store it in database', () => {
+  it('04) test_1', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -77,7 +77,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
     expect(res.body.id).toMatch(/([a-z0-9]{8})-([a-z0-9]{4}-){3}([a-z0-9]{12})/);
   });
 
-  it('\x1b[33m05) test_2\x1b[0m', async () => {
+  it('05) test_2', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -90,7 +90,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
     expect(res.body.hobbies).toEqual(['hiking', 'skiing', 'ice skating']);
     expect(res.body.id).toMatch(/([a-z0-9]{8})-([a-z0-9]{4}-){3}([a-z0-9]{12})/);
   });
-  it('\x1b[33m06) test_3\x1b[0m', async () => {
+  it('06) test_3', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -104,7 +104,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
     expect(res.body.id).toMatch(/([a-z0-9]{8})-([a-z0-9]{4}-){3}([a-z0-9]{12})/);
   });
 
-  it('\x1b[33m07) test_4\x1b[0m', async () => {
+  it('07) test_4', async () => {
     const res = await request(myServer)
       .post('/api/user')
       .set('Accept', 'application/json')
@@ -114,7 +114,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
     expect(res.statusCode).toBe(400);
     expect(res.body).toEqual({ error: 'Resource not found' });
   });
-  it('\x1b[33m08) test_5\x1b[0m', async () => {
+  it('08) test_5', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -127,7 +127,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
         'The body does not contain required valid fields: {username: string, age: number}. hobbies: string[] is not a required field'
     });
   });
-  it('\x1b[33m09) test_6\x1b[0m', async () => {
+  it('09) test_6', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -140,7 +140,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
         'The body does not contain required valid fields: {username: string, age: number}. hobbies: string[] is not a required field'
     });
   });
-  it('\x1b[33m10) test_7\x1b[0m', async () => {
+  it('10) test_7', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -153,7 +153,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
         'The body does not contain required valid fields: {username: string, age: number}. hobbies: string[] is not a required field'
     });
   });
-  it('\x1b[33m11) test_8\x1b[0m', async () => {
+  it('11) test_8', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -166,7 +166,7 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
         'The body does not contain required valid fields: {username: string, age: number}. hobbies: string[] is not a required field'
     });
   });
-  it('\x1b[33m12) test_9\x1b[0m', async () => {
+  it('12) test_9', async () => {
     const res = await request(myServer)
       .post('/api/users')
       .set('Accept', 'application/json')
@@ -183,8 +183,8 @@ describe('\x1b[34m2. POST api/users is used to create record about new user and 
 
 //  1.Test (additional) -> GET api/users is used to get all persons
 
-describe('\x1b[34m1. GET api/users is used to get all persons\x1b[0m', () => {
-  it('\x1b[33m13) test_4\x1b[0m', async () => {
+describe('1. GET api/users is used to get all persons', () => {
+  it('13) test_4', async () => {
     const res = await request(myServer).get('/api/users');
     expect(res.type).toBe('application/json');
     expect(res.statusCode).toBe(200);
@@ -194,8 +194,8 @@ describe('\x1b[34m1. GET api/users is used to get all persons\x1b[0m', () => {
 
 // GET 3.Test -> GET api/users/${userId}
 
-describe('\x1b[34m3. GET api/users/${userId}\x1b[0m', () => {
-  it('\x1b[33m14) test_1\x1b[0m', async () => {
+describe('3. GET api/users/${userId}', () => {
+  it('14) test_1', async () => {
     const res = await request(myServer).get('/api/users');
     const id = res.body[0].id;
     const res1 = await request(myServer).get('/api/users/' + id);
@@ -204,7 +204,7 @@ describe('\x1b[34m3. GET api/users/${userId}\x1b[0m', () => {
     expect(res1.body).toEqual({ ...{ id }, ...User1 });
   });
 
-  it('\x1b[33m15) test_2\x1b[0m', async () => {
+  it('15) test_2', async () => {
     const res = await request(myServer).get('/api/users');
     const id = res.body[1].id;
     const res2 = await request(myServer).get('/api/users/' + id);
@@ -213,14 +213,14 @@ describe('\x1b[34m3. GET api/users/${userId}\x1b[0m', () => {
     expect(res2.body).toEqual({ ...{ id }, ...User2 });
   });
 
-  it('\x1b[33m16) test_3\x1b[0m', async () => {
+  it('16) test_3', async () => {
     const id = '00000000-0000-0000-0000-000000000000';
     const res = await request(myServer).get('/api/users/' + id);
     expect(res.type).toBe('application/json');
     expect(res.statusCode).toBe(404);
     expect(res.body).toEqual({ error: 'User not found' });
   });
-  it('\x1b[33m17) test_4\x1b[0m', async () => {
+  it('17) test_4', async () => {
     const id = '0000000-0000-0000-0000-000000000000';
     const res = await request(myServer).get('/api/users/' + id);
     expect(res.type).toBe('application/json');
@@ -231,8 +231,8 @@ describe('\x1b[34m3. GET api/users/${userId}\x1b[0m', () => {
 
 // PUT 4.Test -> PUT api/users/{userId} is used to update existing user
 
-describe('\x1b[34m4. PUT api/users/{userId} is used to update existing user', () => {
-  it('\x1b[33m18) test_1\x1b[0m', async () => {
+describe('4. PUT api/users/{userId} is used to update existing user', () => {
+  it('18) test_1', async () => {
     const res = await request(myServer).get('/api/users');
     const id = res.body[0].id;
     const res1 = await request(myServer)
@@ -245,7 +245,7 @@ describe('\x1b[34m4. PUT api/users/{userId} is used to update existing user', ()
     expect(res1.body).toEqual({ ...{ id }, ...User2 });
   });
 
-  it('\x1b[33m19) test_2\x1b[0m', async () => {
+  it('19) test_2', async () => {
     const res = await request(myServer).get('/api/users');
     const id = res.body[1].id;
     const res1 = await request(myServer)
@@ -265,7 +265,7 @@ describe('\x1b[34m4. PUT api/users/{userId} is used to update existing user', ()
     expect(res2.body).toEqual({ ...{ id }, ...User2 });
   });
 
-  it('\x1b[33m20) test_3\x1b[0m', async () => {
+  it('20) test_3', async () => {
     const res = await request(myServer).get('/api/users');
     const id = res.body[0].id;
     const res1 = await request(myServer)
@@ -285,7 +285,7 @@ describe('\x1b[34m4. PUT api/users/{userId} is used to update existing user', ()
     expect(res2.body).toEqual({ ...{ id }, ...User2 });
   });
 
-  it('\x1b[33m21) test_4\x1b[0m', async () => {
+  it('21) test_4', async () => {
     const id = '00000000-0000-0000-0000-000000000000';
     const res = await request(myServer)
       .put('/api/users/' + id)
@@ -297,7 +297,7 @@ describe('\x1b[34m4. PUT api/users/{userId} is used to update existing user', ()
     expect(res.body).toEqual({ error: 'User not found' });
   });
 
-  it('\x1b[33m22) test_5\x1b[0m', async () => {
+  it('22) test_5', async () => {
     const id = '0000000-0000-0000-0000-000000000000';
     const res = await request(myServer)
       .put('/api/users/' + id)
@@ -310,17 +310,16 @@ describe('\x1b[34m4. PUT api/users/{userId} is used to update existing user', ()
   });
 });
 
-// GET 5.Test -> DELETE api/users/${userId} is used to delete existing user from database
+// DELETE 5.Test -> DELETE api/users/${userId} is used to delete existing user from database
 
-describe('\x1b[34m5. DELETE api/users/${userId} is used to delete existing user from database', () => {
-  it('\x1b[33m23) test_1\x1b[0m', async () => {
+describe('5. DELETE api/users/${userId} is used to delete existing user from database', () => {
+  it('23) test_1', async () => {
     const res = await request(myServer).get('/api/users');
     const len = res.body.length;
     const id = res.body[1].id;
     const res1 = await request(myServer).delete('/api/users/' + id);
     expect(res1.type).toBe('application/json');
     expect(res1.statusCode).toBe(204);
-    //expect(res1.body.message).toEqual('The user has been deleted');
     const res3 = await request(myServer).get('/api/users/' + id);
     expect(res3.body).toEqual({ error: 'User not found' });
     const res4 = await request(myServer).get('/api/users');
@@ -328,7 +327,7 @@ describe('\x1b[34m5. DELETE api/users/${userId} is used to delete existing user 
     expect(res4.body.length).toBe(len - 1);
   });
 
-  it('\x1b[33m24) test_2\x1b[0m', async () => {
+  it('24) test_2', async () => {
     const id = '0000000-0000-0000-0000-000000000000';
     const res = await request(myServer).delete('/api/users/' + id);
     expect(res.type).toBe('application/json');
@@ -336,11 +335,47 @@ describe('\x1b[34m5. DELETE api/users/${userId} is used to delete existing user 
     expect(res.body).toEqual({ error: 'Invalid userId' });
   });
 
-  it('\x1b[33m25) test_3\x1b[0m', async () => {
+  it('25) test_3', async () => {
     const id = '00000000-0000-0000-0000-000000000000';
     const res = await request(myServer).delete('/api/users/' + id);
     expect(res.type).toBe('application/json');
     expect(res.statusCode).toBe(404);
     expect(res.body).toEqual({ error: 'User not found' });
+  });
+});
+
+//6.Test -> StatusCode 500
+
+describe('6.Test -> StatusCode 500 (Invalid JSON)', () => {
+  it('26) test_1', async () => {
+    const res = await request(myServer)
+      .post('/api/users')
+      .set('Accept', 'application/json')
+      .send('username: "Dima"; age: 20')
+      .expect('Content-Type', /json/);
+    expect(res.type).toBe('application/json');
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: 'Errors on the server side' });
+  });
+  it('27) test_2', async () => {
+    const res = await request(myServer)
+      .post('/api/users')
+      .set('Accept', 'application/json')
+      .send('username: "Dima", age: 20, hobbies: ["running"; "cycling"]')
+      .expect('Content-Type', /json/);
+    expect(res.type).toBe('application/json');
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: 'Errors on the server side' });
+  });
+
+  it('28) test_3', async () => {
+    const res = await request(myServer)
+      .post('/api/users')
+      .set('Accept', 'application/json')
+      .send('username: "Dima", age: 20,')
+      .expect('Content-Type', /json/);
+    expect(res.type).toBe('application/json');
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: 'Errors on the server side' });
   });
 });
