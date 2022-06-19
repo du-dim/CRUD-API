@@ -41,7 +41,7 @@ if (cluster.isPrimary) {
   });
 } else if (cluster.isWorker) {
   void (async () => {
-    import('./server.js');
+    await import('./server.js');
   })();
 }
 process.on('SIGINT', () => {

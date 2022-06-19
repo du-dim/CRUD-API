@@ -20,10 +20,9 @@ export const handleDelete = async (reqUrl: string | undefined, res: ServerRespon
     res.end(JSON.stringify({ error: 'Invalid userId' }));
     return;
   }
-
   if (usersDB.read(userID)) {
-    res.writeHead(200);
     usersDB.delete(userID);
+    res.writeHead(204);
     res.end(JSON.stringify({ message: 'The user has been deleted' }));
     return;
   }

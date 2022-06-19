@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es6",
     "module": "esnext",
     "esModuleInterop": true,    
     "outDir": "./build",
@@ -9,10 +9,12 @@
     "allowJs": true,
     "removeComments": true, 
     "strict": true,
-    "noImplicitAny": true,      
+    "noImplicitAny": true,         
+    "types": [ "node", "vitest/globals"],
   },  
-  "exclude": ["node_modules", "./build"],
-  "ts-node": {
-    "esm": true,    
-  }
+  "exclude": ["node_modules", "./build", "./src/tests"  ],
+  "include": ["./src" ],
+  "ts-node": {  
+    "esm": true,
+  },       
 }

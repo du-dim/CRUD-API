@@ -1,4 +1,4 @@
-import { TUser } from './types/type';
+import { TUser } from './types/type.js';
 
 export const getJSON = async (data: string) => {
   try {

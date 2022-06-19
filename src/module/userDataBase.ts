@@ -1,4 +1,4 @@
-import { TUser, TUserDB } from './types/type';
+import { TUser, TUserDB } from './types/type.js';
 
 class Database {
   data: TUser[];
