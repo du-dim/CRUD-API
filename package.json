@@ -12,6 +12,9 @@
     "build": "tsc",
     "dev": "ts-node ./src/server.ts"
   },
+  "nodemonConfig": {
+    "ignore": ["./src/_data.json"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/du-dim/CRUD-API.git"

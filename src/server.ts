@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-//@ts-ignore
 import { createServer } from 'http';
 import { handler } from './modules/handlers/_handler.js';
 import dotenv from 'dotenv';

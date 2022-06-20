@@ -12,7 +12,7 @@
     "noImplicitAny": true,         
     "types": [ "node", "vitest/globals"],
   },  
-  "exclude": ["node_modules", "./build", "src/__tests"  ],
+  "exclude": ["node_modules", "./build", "src/__tests", "_data.json"  ],
   "include": ["./src" ],
   "ts-node": {  
     "esm": true,
