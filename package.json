@@ -2,14 +2,15 @@
   "name": "crud-api",
   "version": "1.0.0",
   "description": "The task is to implement simple CRUD API using in-memory database underneath",
-  "main": "index.ts",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon src/index.ts",
-    "start:prod": "tsc && node ./build/index.js",
+    "start:test": "vitest --ui",
+    "start:dev": "nodemon ./src/server.ts",
+    "start:prod": "tsc && node ./build/server.js",
+    "start:multi": "nodemon ./src/cluster.ts",
     "build": "tsc",
-    "dev": "ts-node ./src/index.ts"
+    "dev": "ts-node ./src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -23,15 +24,22 @@
   },
   "homepage": "https://github.com/du-dim/CRUD-API#readme",
   "devDependencies": {
+    "@types/node": "^17.0.43",
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
+    "@vitest/ui": "^0.15.1",
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.7.0",
+    "supertest": "^6.2.3",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "uuid": "^8.3.2",
+    "vitest": "^0.15.1"
   }
 }
