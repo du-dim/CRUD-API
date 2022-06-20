@@ -1,26 +1,18 @@
 [
     {
-        "id": "2ebf8b2f-09dd-4044-becc-47456a8d567b",
-        "username": "Dima2",
+        "id": "b768df8e-aa71-4dfd-8526-b29bf639a08c",
+        "username": "Petya",
         "age": 22,
         "hobbies": [
-            "running"
+            "hiking",
+            "skiing",
+            "ice skating"
         ]
     },
     {
-        "id": "519df3bb-ddcd-4688-8fe6-bb9b1b7fd129",
-        "username": "Dima1",
-        "age": 33,
-        "hobbies": [
-            "running"
-        ]
-    },
-    {
-        "id": "b671b0eb-29cf-4165-b1a2-7a07ee69a8d9",
-        "username": "Dima1",
-        "age": 33,
-        "hobbies": [
-            ""
-        ]
+        "id": "bc5d3ac3-32db-4ce0-b90e-117a3bd514a8",
+        "username": "Vasya",
+        "age": 30,
+        "hobbies": []
     }
 ]

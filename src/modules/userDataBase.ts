@@ -7,9 +7,9 @@ class Database {
   constructor() {
     this.data = readJSON;
   }
-  create(newUser: TUser) {
+  async create(newUser: TUser) {
     this.data.push(newUser);
-    writeJSON(this.data);
+    await writeJSON(this.data);
   }
 
   read(id: string) {
@@ -17,15 +17,15 @@ class Database {
     return user[0];
   }
 
-  update(newUser: TUser) {
+  async update(newUser: TUser) {
     const index = this.data.findIndex((u) => u.id === newUser.id);
     this.data[index] = { ...this.data[index], ...newUser };
-    writeJSON(this.data);
+    await writeJSON(this.data);
   }
 
-  delete(id: string) {
+  async delete(id: string) {
     this.data = this.data.filter((u) => u.id !== id);
-    writeJSON(this.data);
+    await writeJSON(this.data);
   }
 }
 

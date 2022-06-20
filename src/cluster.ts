@@ -1,8 +1,12 @@
 import cluster from 'cluster';
 import { cpus } from 'os';
+import { writeJSON } from './modules/writeRead/writeJSON.js';
+import { usersDB } from './modules/userDataBase.js';
 
 const numCPUs = cpus().length;
 if (cluster.isPrimary) {
+  usersDB.data = [];
+  writeJSON([]);
   console.log(`Primary is running. Pid: ${process.pid}`);
   for (let i = 0; i < numCPUs; i++) {
     const worker = cluster.fork();
